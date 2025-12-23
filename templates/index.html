@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books List</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1>📚 Books List (Scraped)</h1>
+
+    <div class="card shadow mt-4">
+        <div class="card-body">
+
+            <!-- Books Table -->
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Title</th>
+                        <th class="center-text">Price (£)</th>
+                        <th class="center-text">Stock Status</th>
+                        <th class="center-text">Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in books %}
+                    <tr>
+                        <td>{{ book.title }}</td>
+                        <td class="center-text">{{ book.price }}</td>
+                        <td class="center-text">{{ book.stock }}</td>
+                        <td class="center-text">{{ book.rating }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- Pagination Buttons -->
+            <div class="d-flex justify-content-between align-items-center mt-4">
+                <!-- Previous Button -->
+                {% if page_num > 1 %}
+                    <a href="/page/{{ page_num - 1 }}" class="btn btn-primary">⬅ Previous</a>
+                {% else %}
+                    <span></span>
+                {% endif %}
+
+                <h5>Page {{ page_num }} of {{ total_pages }}</h5>
+
+                <!-- Next Button -->
+                {% if page_num < total_pages %}
+                    <a href="/page/{{ page_num + 1 }}" class="btn btn-primary">Next ➡</a>
+                {% else %}
+                    <span></span>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

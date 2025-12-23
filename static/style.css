@@ -1,0 +1,42 @@
+/* General body styling */
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    padding-bottom: 50px;
+}
+
+/* Page title */
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #343a40;
+}
+
+/* Table text alignment */
+.center-text { 
+    text-align: center; 
+}
+
+/* Table hover and stripe effects */
+table.table-hover tbody tr:hover {
+    background-color: #d1ecf1;
+}
+
+table.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #e9ecef;
+}
+
+/* Card shadow & padding */
+.card {
+    border-radius: 10px;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Responsive table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
